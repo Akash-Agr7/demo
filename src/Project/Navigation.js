@@ -59,7 +59,7 @@ function HomeScreen({ navigation }) {
         <Text>itemId: {JSON.stringify(itemId)}</Text>
         <Text>otherParam: {JSON.stringify(otherParam)}</Text>
         <Button
-          title="Go to Details... again"
+          title="Go to Details...... again"
           onPress={() =>
             navigation.push('Details', {
               itemId: Math.floor(Math.random() * 100),
