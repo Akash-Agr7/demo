@@ -13,7 +13,6 @@ import {
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import HomeScreen from './HomeScreen';
 import Login from './Login';
 import Register from './Register';
 
@@ -24,7 +23,8 @@ const MyStack = () => {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
-          headerShown: false,
+          headerShown: true,
+          headerStyle: {height: 70,},
         }}>
         <Stack.Screen name="Home" component={HomeScreen} />
 
@@ -36,23 +36,23 @@ const MyStack = () => {
   );
 };
 
-// function HomeScreen({ navigation }) {
-//     return (
-//       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-//         <Text>Home Screen</Text>
-//         <Button
-//           title="Go to Details"
-//           onPress={() => {
-//             /* 1. Navigate to the Details route with params */
-//             navigation.navigate('Details', {
-//               itemId: 86,
-//               otherParam: 'anything you want here',
-//             });
-//           }}
-//         />
-//       </View>
-//     );
-//   }
+function HomeScreen({ navigation }) {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title="Go to Details"
+          onPress={() => {
+            /* 1. Navigate to the Details route with params */
+            navigation.navigate('Details', {
+              itemId: 86,
+              otherParam: 'anything you want here',
+            });
+          }}
+        />
+      </View>
+    );
+  }
 
 function DetailsScreen({route, navigation}) {
   /* 2. Get the param */
@@ -65,13 +65,13 @@ function DetailsScreen({route, navigation}) {
       <Button
         title="Go to Details..... again"
         onPress={() =>
-          navigation.push('Details', {
+          navigation.navigate('Details', {
             itemId: Math.floor(Math.random() * 100),
           })
         }
       />
       <Button
-        title="Go back to login"
+        title="Go to login"
         onPress={() => navigation.navigate('login')}
       />
       <Button title="Go back" onPress={() => navigation.goBack()} />

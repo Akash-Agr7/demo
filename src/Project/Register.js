@@ -68,7 +68,7 @@ export default function Register({ navigation }) {
 
     return (
         <SafeAreaView style={styles.container}>
-            <ScrollView bounces={false} style={styles.subcontainer}>
+            <ScrollView style={styles.subcontainer}>
                 <Image
                     source={require('../assets/icLoginBg_2022-03-24/icLoginBg.png')}
                     style={styles.loginBg} />
@@ -166,7 +166,6 @@ export default function Register({ navigation }) {
                                     {'Agree to Terms of Service & Privacy Policy'}
                                 </Text>
                         </View>
-                        <View>
                             <TouchableOpacity style={styles.button}
                             disabled={register}
                             activeOpacity={0.3}
@@ -176,7 +175,6 @@ export default function Register({ navigation }) {
                             >
                                 <Text style={styles.buttonText} >{'REGISTER'}</Text>
                             </TouchableOpacity>
-                        </View>
 
                         <View style={styles.footer}>
                             <Text style={styles.footertxt}>
@@ -211,7 +209,7 @@ const styles = StyleSheet.create({
     },
     subcontainer: {
         flex: 1,
-        height: '100%',
+        // height: '100%',
         width: '100%',
         position: 'absolute',
     },
@@ -280,7 +278,7 @@ const styles = StyleSheet.create({
     },
     pass: {
         borderWidth: 1,
-        marginTop: '4%',
+        marginTop: '1%',
         marginHorizontal: '5%',
         height: '11%',
         padding: '2%',
@@ -327,11 +325,11 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         textAlign: 'center',
         // marginLeft: '1%',
-        marginTop: '8%',
+        marginTop: '3%',
         color: '#444444',
     },
     button: {
-        marginVertical: '10%',
+        marginVertical: '5%',
         marginHorizontal: '6%',
         alignItems: 'center',
         paddingVertical: '4%',
@@ -380,6 +378,6 @@ const styles = StyleSheet.create({
     check: {
         position: 'absolute',
         left: '10%',
-        top: '68%',
+        top: '50%',
     },
 })
