@@ -16,7 +16,7 @@ import { agreed } from '../assets'
 import { unchecked } from '../assets'
 
 
-export default function Register() {
+export default function Register({ navigation }) {
     const [hidePass, setHidePass] = useState(true);
     const [hideConfPass, setHideConfPass] = useState(true);
     const [image, setImage] = useState(false);
@@ -183,6 +183,7 @@ export default function Register() {
                                 {'Already have an account? '}
                             </Text>
                             <Pressable
+                            onPress={()=>navigation.navigate('login')}
                                 style={({ pressed }) => [{
                                     borderBottomColor: pressed
                                         ? '#000000'
