@@ -13,7 +13,7 @@ import React, {useState} from 'react';
 import {eye} from '../assets';
 import {hide} from '../assets';
 
-export default function Login({ navigation }) {
+export default function Login({navigation}) {
   const [hidePass, setHidePass] = useState(true);
   const [email, setEmail] = useState('');
   const [image, setImage] = useState(false);
@@ -100,7 +100,7 @@ export default function Login({ navigation }) {
             <View style={styles.footer}>
               <Text>{'Not Registered Yet? '}</Text>
               <Pressable
-              onPress={()=>navigation.navigate('Register')}
+                onPress={() => navigation.navigate('Register')}
                 style={({pressed}) => [
                   {
                     borderBottomColor: pressed ? '#000000' : '#ffffff00',
