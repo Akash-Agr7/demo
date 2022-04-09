@@ -10,14 +10,16 @@ import {
   ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {eye} from '../assets';
 import {hide} from '../assets';
 
-export default function Login({navigation}) {
+export default function Login() {
   const [hidePass, setHidePass] = useState(true);
   const [email, setEmail] = useState('');
   const [image, setImage] = useState(false);
   const [emailValidError, setEmailValidError] = useState('');
+  const navigation = useNavigation()
 
   const handleValidEmail = val => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;

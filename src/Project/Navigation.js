@@ -15,6 +15,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Login from './Login';
 import Register from './Register';
+import TabNav from './TabNav';
 import StudentList from './StudentList';
 
 const Stack = createNativeStackNavigator();
@@ -25,18 +26,18 @@ const MyStack = () => {
       <Stack.Navigator
         screenOptions={{
           headerShown: true,
-          headerStyle: {height: 70,},
+          headerStyle: { backgroundColor: '#53B8BB',},
         }}>
-        <Stack.Screen name="Home" component={HomeScreen} />
-
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Tab" component={TabNav} options={{headerTitle:()=>(
+          <Image style={{height: 30, resizeMode: 'contain',}} source={require('../assets/images/img.png')}/>
+        ),}} />
         <Stack.Screen name="login" component={Login} />
         <Stack.Screen name="Register" component={Register} />
-        <Stack.Screen name="Student List" component={StudentList} options={{
+        {/* <Stack.Screen name="Student List" component={StudentList} options={{
             headerStyle:{backgroundColor: '#000000',},
             headerTintColor: '#51C4D3',
             headerTitleStyle: {fontWeight: '800', fontSize: 20,},
-        }} />
+        }} /> */}
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -81,7 +82,7 @@ function DetailsScreen({route, navigation}) {
         onPress={() => navigation.navigate('login')}
       />
       <Button title="Go to StudentList" onPress={() => navigation.navigate('Student List')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="Go back" onPress={() => navigation.pop()} />
     </View>
   );
 }

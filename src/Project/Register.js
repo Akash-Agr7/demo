@@ -10,12 +10,13 @@ import {
   ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
+import { useNavigation } from '@react-navigation/native';
 import {eye} from '../assets';
 import {hide} from '../assets';
 import {agreed} from '../assets';
 import {unchecked} from '../assets';
 
-export default function Register({navigation}) {
+export default function Register() {
   const [hidePass, setHidePass] = useState(true);
   const [hideConfPass, setHideConfPass] = useState(true);
   const [image, setImage] = useState(false);
@@ -29,6 +30,7 @@ export default function Register({navigation}) {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [emailValidError, setEmailValidError] = useState('');
   const [passValidError, setPassValidError] = useState('');
+  const navigation = useNavigation()
 
   const handleValidEmail = val => {
     let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
@@ -66,7 +68,7 @@ export default function Register({navigation}) {
 
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView style={styles.subcontainer}>
+      <ScrollView bounces={false} style={styles.subcontainer}>
         <Image
           source={require('../assets/icLoginBg_2022-03-24/icLoginBg.png')}
           style={styles.loginBg}
@@ -177,7 +179,7 @@ export default function Register({navigation}) {
                 {'Already have an account? '}
               </Text>
               <Pressable
-                onPress={() => navigation.navigate('login')}
+                onPress={() => navigation.goBack()}
                 style={({pressed}) => [
                   {
                     borderBottomColor: pressed ? '#000000' : '#00000000',
